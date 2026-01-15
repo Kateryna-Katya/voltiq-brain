@@ -22,4 +22,22 @@ document.addEventListener('DOMContentLoaded', () => {
         // Здесь можно добавить логику открытия мобильного меню
         console.log('Mobile menu toggle');
     });
+    // Добавьте это внутрь DOMContentLoaded
+const hero = document.querySelector('.hero');
+if (hero) {
+    hero.addEventListener('mousemove', (e) => {
+        const { clientX, clientY } = e;
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+        
+        const moveX = (clientX - centerX) / 50;
+        const moveY = (clientY - centerY) / 50;
+        
+        const circles = document.querySelectorAll('.hero__circle');
+        circles.forEach((circle, index) => {
+            const speed = (index + 1) * 0.5;
+            circle.style.transform = `translate(${moveX * speed}px, ${moveY * speed}px)`;
+        });
+    });
+}
 });
