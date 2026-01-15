@@ -121,4 +121,43 @@ form.addEventListener('submit', (e) => {
         captchaLabel.textContent = `${num1} + ${num2}`;
     }, 1500);
 });
+    // Внутри DOMContentLoaded
+const burger = document.getElementById('burger-menu');
+const closeBtn = document.getElementById('close-menu');
+const mobileNav = document.getElementById('mobile-nav');
+const navLinks = document.querySelectorAll('.mobile-nav__link');
+
+// 1. Управление мобильным меню
+const toggleMenu = () => {
+    mobileNav.classList.toggle('active');
+    document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+};
+
+burger.addEventListener('click', toggleMenu);
+closeBtn.addEventListener('click', toggleMenu);
+
+// Закрытие при клике на ссылку
+navLinks.forEach(link => {
+    link.addEventListener('click', toggleMenu);
+});
+
+// 2. Логика Cookie Popup
+const cookiePopup = document.getElementById('cookie-popup');
+const acceptBtn = document.getElementById('accept-cookies');
+
+const checkCookies = () => {
+    const accepted = localStorage.getItem('cookies-accepted');
+    if (!accepted) {
+        setTimeout(() => {
+            cookiePopup.classList.add('visible');
+        }, 2000);
+    }
+};
+
+acceptBtn.addEventListener('click', () => {
+    localStorage.setItem('cookies-accepted', 'true');
+    cookiePopup.classList.remove('visible');
+});
+
+checkCookies();
 });
