@@ -15,7 +15,7 @@
 
   <script src="https://unpkg.com/lucide@latest"></script>
     <script type="module" crossorigin src="/voltiq-brain/index.js"></script>
-    <link rel="stylesheet" crossorigin href="/voltiq-brain/assets/styles-DJDY4T-p.css">
+    <link rel="stylesheet" crossorigin href="/voltiq-brain/assets/styles-_7bEpyBe.css">
   </head>
   <body>
     <header class="header">
@@ -43,6 +43,24 @@
     </div>
   </div>
 </header>
+<div class="mobile-nav" id="mobile-nav">
+  <div class="mobile-nav__header">
+    <a href="/" class="logo">
+      <span class="logo__text">Voltiq<span class="logo__accent">Brain</span></span>
+    </a>
+    <button class="burger active" id="close-menu">
+      <span></span>
+    </button>
+  </div>
+  <ul class="mobile-nav__list">
+    <li><a href="#hero" class="mobile-nav__link">Главная</a></li>
+    <li><a href="#about" class="mobile-nav__link">О платформе</a></li>
+    <li><a href="#benefits" class="mobile-nav__link">Преимущества</a></li>
+    <li><a href="#innovation" class="mobile-nav__link">Инновации</a></li>
+    <li><a href="#blog" class="mobile-nav__link">Обучение</a></li>
+    <li><a href="#contact" class="btn btn--primary">Связаться</a></li>
+  </ul>
+</div>
 
     <main>
       <!-- Loads the specified .html file -->
@@ -530,6 +548,15 @@
     <p class="footer__copy">&copy; 2026 Voltiq Brain. Все права защищены. Предложение активно в странах ЕС.</p>
   </div>
 </footer>
+    <div class="cookie-popup" id="cookie-popup">
+      <div class="cookie-popup__content">
+        <i data-lucide="cookie"></i>
+        <p class="cookie-popup__text">
+          Этот сайт использует cookies для улучшения работы. Подробнее — в нашей <a href="./cookies.html">Cookie политике</a>.
+        </p>
+        <button class="btn btn--primary btn--sm" id="accept-cookies">Принять</button>
+      </div>
+    </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   </body>
 </html>
