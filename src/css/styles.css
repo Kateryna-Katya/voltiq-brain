@@ -1499,3 +1499,70 @@ a {
         text-align: center;
     }
 }
+/* --- СТИЛИ ЮРИДИЧЕСКИХ СТРАНИЦ --- */
+.pages {
+    padding: 160px 0 100px;
+    /* Учитываем высоту фиксированного хедера */
+    min-height: 80vh;
+}
+
+.pages .container {
+    max-width: 800px;
+    /* Узкая колонка для удобства чтения текста */
+    margin: 0 auto;
+}
+
+.pages h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--white);
+    margin-bottom: 40px;
+    line-height: 1.2;
+}
+
+.pages h2 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    margin: 40px 0 20px;
+}
+
+.pages p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.pages ul {
+    margin-bottom: 30px;
+    padding-left: 20px;
+}
+
+.pages li {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 12px;
+    position: relative;
+    list-style-type: disc;
+}
+
+.pages li::marker {
+    color: var(--primary-color);
+}
+
+/* Стили для ссылок внутри текста */
+.pages a {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.pages a:hover {
+    color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .pages {
+        padding: 120px 0 60px;
+    }
+}
