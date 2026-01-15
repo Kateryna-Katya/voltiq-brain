@@ -78,4 +78,47 @@ tabButtons.forEach(btn => {
         lucide.createIcons();
     });
 });
+    // Внутри DOMContentLoaded
+const form = document.getElementById('ai-contact-form');
+const captchaLabel = document.getElementById('captcha-question');
+const successMsg = document.getElementById('form-success');
+const phoneInput = document.getElementById('user-phone');
+
+// 1. Генерация капчи
+let num1 = Math.floor(Math.random() * 10) + 1;
+let num2 = Math.floor(Math.random() * 10) + 1;
+let correctAnswer = num1 + num2;
+if(captchaLabel) captchaLabel.textContent = `${num1} + ${num2}`;
+
+// 2. Валидация телефона (только цифры)
+phoneInput.addEventListener('input', (e) => {
+    e.target.value = e.target.value.replace(/[^0-9]/g, '');
+});
+
+// 3. Обработка отправки
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const userAnswer = parseInt(document.getElementById('captcha-answer').value);
+    
+    if (userAnswer !== correctAnswer) {
+        alert('Ошибка капчи! Попробуйте еще раз.');
+        return;
+    }
+
+    // Имитация AJAX
+    const submitBtn = form.querySelector('.form__submit');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Отправка...';
+
+    setTimeout(() => {
+        successMsg.classList.add('active');
+        form.reset();
+        // Обновляем капчу для следующего раза
+        num1 = Math.floor(Math.random() * 10) + 1;
+        num2 = Math.floor(Math.random() * 10) + 1;
+        correctAnswer = num1 + num2;
+        captchaLabel.textContent = `${num1} + ${num2}`;
+    }, 1500);
+});
 });
