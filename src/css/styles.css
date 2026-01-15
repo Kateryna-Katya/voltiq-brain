@@ -964,3 +964,90 @@ a {
         grid-template-columns: 1fr;
     }
 }
+/* Визуализация графиков (Data Analysis) */
+.data-preview {
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.data-bar {
+    flex: 1;
+    background: linear-gradient(to top, var(--primary-color), var(--accent-color));
+    border-radius: 8px 8px 4px 4px;
+    animation: growBar 1.5s ease-out forwards;
+    transform-origin: bottom;
+    transform: scaleY(0);
+}
+
+@keyframes growBar {
+    to {
+        transform: scaleY(1);
+    }
+}
+
+/* Визуализация ворклоу (Automation) */
+.workflow-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.workflow-node {
+    width: 60px;
+    height: 60px;
+    background: var(--surface-color);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+}
+
+.workflow-node.accent {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 20px rgba(45, 212, 191, 0.2);
+}
+
+.workflow-line {
+    width: 40px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.workflow-line::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    filter: blur(2px);
+    animation: moveDot 2s infinite linear;
+}
+
+@keyframes moveDot {
+    0% {
+        left: 0;
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
