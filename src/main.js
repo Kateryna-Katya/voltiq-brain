@@ -58,4 +58,24 @@ const revealObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => {
     revealObserver.observe(el);
 });
+    // Добавьте это в DOMContentLoaded
+const tabButtons = document.querySelectorAll('.tab-btn');
+const tabPanels = document.querySelectorAll('.tab-panel');
+
+tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const target = btn.dataset.target;
+
+        // Удаляем активные классы
+        tabButtons.forEach(b => b.classList.remove('active'));
+        tabPanels.forEach(p => p.classList.remove('active'));
+
+        // Добавляем активный класс нажатой кнопке и соответствующей панели
+        btn.classList.add('active');
+        document.getElementById(target).classList.add('active');
+        
+        // Переинициализация иконок, если они есть в новых панелях
+        lucide.createIcons();
+    });
+});
 });
