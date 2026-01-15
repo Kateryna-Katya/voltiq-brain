@@ -39,5 +39,23 @@ if (hero) {
             circle.style.transform = `translate(${moveX * speed}px, ${moveY * speed}px)`;
         });
     });
-}
+    }
+    // Внутри DOMContentLoaded
+const observerOptions = {
+    threshold: 0.1
+};
+
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            // Если нужно, чтобы анимация сработала только один раз:
+            // revealObserver.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.reveal').forEach(el => {
+    revealObserver.observe(el);
+});
 });
